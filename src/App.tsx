@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 function App() {
   const [envMap] = useLoader(TextureLoader, [
-    "public/blockadesLabsSkybox/alien-cave.jpg",
+    "/blockadesLabsSkybox/alien-cave.jpg",
   ]);
   envMap.mapping = EquirectangularReflectionMapping;
 
