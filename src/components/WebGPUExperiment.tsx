@@ -3,14 +3,15 @@ import { MaterialNode, extend } from "@react-three/fiber";
 import { MeshBasicNodeMaterial } from "three/examples/jsm/nodes/Nodes.js";
 import WebGPURenderer from "three/examples/jsm/renderers/webgpu/WebGPURenderer.js";
 import { Canvas } from "@react-three/fiber";
+import { MeshBasicMaterial } from "three";
 
 extend({ MeshBasicNodeMaterial });
 
 declare module "@react-three/fiber" {
   interface ThreeElements {
     meshBasicNodeMaterial: MaterialNode<
-      MeshBasicNodeMaterial,
-      [MeshBasicNodeMaterial]
+      MeshBasicMaterial & MeshBasicNodeMaterial,
+      [MeshBasicMaterial & MeshBasicNodeMaterial]
     >;
   }
 }
