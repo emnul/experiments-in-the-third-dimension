@@ -13,7 +13,7 @@ function WebGLExperiment() {
         <directionalLight position={[0, 0, 5]} />
         <OrbitControls />
         <mesh>
-          <sphereGeometry color="lightblue" />
+          <sphereGeometry />
           <meshNormalMaterial />
         </mesh>
       </Canvas>

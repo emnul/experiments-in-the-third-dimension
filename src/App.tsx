@@ -1,5 +1,5 @@
-import WebGPUExperiment from "./components/WebGPUExperiment";
-import WebGLExperiment from "./components/WebGLExperiment";
+import WebGPUExperiment from "./components/WebGPUExperiment.tsx";
+import WebGLExperiment from "./components/WebGLExperiment.tsx";
 import { useState } from "react";
 
 function App() {

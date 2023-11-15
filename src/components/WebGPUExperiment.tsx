@@ -1,15 +1,31 @@
 import { OrbitControls } from "@react-three/drei";
-import { extend } from "@react-three/fiber";
-import { MeshBasicNodeMaterial } from "three/examples/jsm/nodes/Nodes";
-import WebGPURenderer from "three/examples/jsm/renderers/webgpu/WebGPURenderer";
+import { MaterialNode, extend } from "@react-three/fiber";
+import { MeshBasicNodeMaterial } from "three/examples/jsm/nodes/Nodes.js";
+import WebGPURenderer from "three/examples/jsm/renderers/webgpu/WebGPURenderer.js";
 import { Canvas } from "@react-three/fiber";
 
 extend({ MeshBasicNodeMaterial });
 
+declare module "@react-three/fiber" {
+  interface ThreeElements {
+    meshBasicNodeMaterial: MaterialNode<
+      MeshBasicNodeMaterial,
+      [MeshBasicNodeMaterial]
+    >;
+  }
+}
+
 function WebGPUExperiment() {
   return (
     <div id="canvas-container" className="canvas-container">
-      <Canvas gl={(canvas) => new WebGPURenderer({ canvas, antialias: true })}>
+      <Canvas
+        gl={(canvas) =>
+          new WebGPURenderer({
+            canvas: canvas as HTMLCanvasElement,
+            antialias: true,
+          })
+        }
+      >
         <gridHelper />
         <pointLight position={[10, 10, 10]} />
         <ambientLight intensity={0.1} />
