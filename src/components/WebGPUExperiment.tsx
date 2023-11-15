@@ -27,10 +27,6 @@ function WebGPUExperiment() {
           })
         }
       >
-        <gridHelper />
-        <pointLight position={[10, 10, 10]} />
-        <ambientLight intensity={0.1} />
-        <directionalLight position={[0, 0, 5]} />
         <OrbitControls />
         <mesh>
           <sphereGeometry />
