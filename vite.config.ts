@@ -4,6 +4,15 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  /**
+   *  TODO remove this once https://github.com/mrdoob/three.js/pull/27189 is released in prod build
+   * */
+  
+  build: {
+    rollupOptions: {
+      treeshake: false
+    },
+  },
   plugins: [
     react(),
     topLevelAwait({
