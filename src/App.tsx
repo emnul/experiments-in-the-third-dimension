@@ -1,4 +1,4 @@
-import WebGPUExperiment from "./components/WebGPUExperiment.tsx";
+import WebGPUR3FExperiment from "./components/WebGPU-R3F-Experiment.tsx";
 import WebGLExperiment from "./components/WebGLExperiment.tsx";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ function App() {
       <button className="btn" onClick={() => setScene(!switchScene)}>
         Change Scene
       </button>
-      {switchScene ? <WebGPUExperiment /> : <WebGLExperiment />}
+      {switchScene ? <WebGPUR3FExperiment /> : <WebGLExperiment />}
     </>
   );
 }
