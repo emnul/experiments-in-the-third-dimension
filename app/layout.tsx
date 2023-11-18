@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import NavBar from "../components/NavBar/NavBar";
 import "./globals.css";
-import NavBar from "../components/NavBar";
 
 export const metadata: Metadata = {
   title: "Experiments in the third dimension",

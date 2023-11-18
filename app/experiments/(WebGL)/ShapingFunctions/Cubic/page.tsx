@@ -1,10 +1,10 @@
 "use client";
 
-import vertexShader from "@/shaders/HelloFragCoord/vertex.glsl";
-import fragmentShader from "@/shaders/HelloFragCoord/fragment.glsl";
+import vertexShader from "@/shaders/ShapingFunctions/vertex.glsl";
+import fragmentShader from "@/shaders/ShapingFunctions/cubic.glsl";
 import ShaderExperiment from "components/ShaderExperiment/ShaderExperiment";
 
-function HelloFragCoord() {
+function CubicShader() {
   return (
     <ShaderExperiment
       fragmentShader={fragmentShader}
@@ -13,4 +13,4 @@ function HelloFragCoord() {
   );
 }
 
-export default HelloFragCoord;
+export default CubicShader;

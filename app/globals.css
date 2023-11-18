@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
 }
@@ -14,14 +18,4 @@ body,
 button,
 p {
   all: unset;
-}
-
-
-.btn {
-  position: absolute;
-  padding: 1rem;
-  top: 0;
-  left: 0;
-  background-color: #b0b0b0;
-  z-index: 1;
 }

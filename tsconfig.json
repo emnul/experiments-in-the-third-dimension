@@ -20,7 +20,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/shaders/*": ["/shaders/*"]
+      "@/shaders/*": ["/shaders/*"],
+      "@/app/*": ["/app/*"],
+      "@/components/*": ["/components/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
