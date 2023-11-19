@@ -3,6 +3,7 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Color, ShaderMaterial, Vector2, Vector3 } from "three";
 import { useRef } from "react";
+import styles from "./shaderExperiment.module.css";
 
 interface CustomShaderProps {
   vertexShader: string;
@@ -44,9 +45,8 @@ function CustomShader({ vertexShader, fragmentShader }: CustomShaderProps) {
 
 function ShaderExperiment({ vertexShader, fragmentShader }: CustomShaderProps) {
   return (
-    <main>
+    <main className={styles.canvasContainer}>
       <Canvas
-        className={"canvasContainer"}
         camera={{ position: [0, 0, 1.5], fov: 55, near: 1, far: 1000 }}
         scene={{ background: new Color("#e0e0e0") }}
       >

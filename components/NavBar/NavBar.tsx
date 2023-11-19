@@ -37,27 +37,27 @@ function NavBar() {
           );
         })}
         <NavigationMenu.Item aria-hidden>
-          <NavigationMenu.Trigger className="NavigationMenuTrigger">
+          <NavigationMenu.Trigger className={styles.NavigationMenuTrigger}>
             Shaping Functions
-            <CaretDownIcon className="CaretDown" aria-hidden />
+            <CaretDownIcon className={styles.CaretDownIcon} aria-hidden />
           </NavigationMenu.Trigger>
-          <NavigationMenu.Content className="NavigationMenuContent">
-            <ul className="List one">
+          <NavigationMenu.Content className={styles.NavigationMenuContent}>
+            <ul className={`${styles.List} ${styles.one}`}>
               <ListItem href="/experiments/ShapingFunctions/Line" title="y = x">
-                Visualization the function y = x
+                Visualization of y = x
               </ListItem>
               <ListItem
                 href="/experiments/ShapingFunctions/Cubic"
                 title="y = x^3"
               >
-                Visualization the function y = x^3
+                Visualization of y = x^3
               </ListItem>
             </ul>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
-        <NavigationMenu.Indicator className="NavigationMenuIndicator">
-          <div className="Arrow" />
+        <NavigationMenu.Indicator className={styles.NavigationMenuIndicator}>
+          <div className={styles.Arrow} />
         </NavigationMenu.Indicator>
       </NavigationMenu.NavigationMenuList>
 
@@ -75,12 +75,12 @@ const ListItem = forwardRef<
   <li>
     <NavigationMenu.Link asChild>
       <Link
-        className={classNames("ListItemLink", className)}
+        className={classNames(styles.ListItemLink, className)}
         href={href}
         ref={forwardedRef}
       >
-        <div className="ListItemHeading">{title}</div>
-        <p className="ListItemText">{children}</p>
+        <div className={styles.ListItemHeader}>{title}</div>
+        <p className={styles.ListItemText}>{children}</p>
       </Link>
     </NavigationMenu.Link>
   </li>
