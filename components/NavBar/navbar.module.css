@@ -4,7 +4,7 @@
   justify-content: center;
   width: 100vw;
   z-index: 1;
-  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .NavigationMenuList {
@@ -67,16 +67,16 @@
   animation-duration: 250ms;
   animation-timing-function: ease;
 }
-.NavigationMenuContent[data-motion='from-start'] {
+.NavigationMenuContent[data-motion="from-start"] {
   animation-name: enterFromLeft;
 }
-.NavigationMenuContent[data-motion='from-end'] {
+.NavigationMenuContent[data-motion="from-end"] {
   animation-name: enterFromRight;
 }
-.NavigationMenuContent[data-motion='to-start'] {
+.NavigationMenuContent[data-motion="to-start"] {
   animation-name: exitToLeft;
 }
-.NavigationMenuContent[data-motion='to-end'] {
+.NavigationMenuContent[data-motion="to-end"] {
   animation-name: exitToRight;
 }
 @media only screen and (min-width: 600px) {
@@ -93,12 +93,14 @@
   top: 100%;
   overflow: hidden;
   z-index: 1;
-  transition: width, transform 250ms ease;
+  transition:
+    width,
+    transform 250ms ease;
 }
-.NavigationMenuIndicator[data-state='visible'] {
+.NavigationMenuIndicator[data-state="visible"] {
   animation: fadeIn 200ms ease;
 }
-.NavigationMenuIndicator[data-state='hidden'] {
+.NavigationMenuIndicator[data-state="hidden"] {
   animation: fadeOut 200ms ease;
 }
 
@@ -110,14 +112,19 @@
   background-color: white;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
   height: var(--radix-navigation-menu-viewport-height);
-  transition: width, height, 300ms ease;
+  transition:
+    width,
+    height,
+    300ms ease;
 }
-.NavigationMenuViewport[data-state='open'] {
+.NavigationMenuViewport[data-state="open"] {
   animation: scaleIn 200ms ease;
 }
-.NavigationMenuViewport[data-state='closed'] {
+.NavigationMenuViewport[data-state="closed"] {
   animation: scaleOut 200ms ease;
 }
 @media only screen and (min-width: 600px) {
@@ -175,10 +182,6 @@
   font-weight: initial;
 }
 
-/* .ListItemText p {
-  all: unset;
-} */
-
 .ViewportPosition {
   position: absolute;
   display: flex;
@@ -195,7 +198,7 @@
   top: 1px;
   transition: transform 250ms ease;
 }
-[data-state='open'] > .CaretDown {
+[data-state="open"] > .CaretDown {
   transform: rotate(-180deg);
 }
 

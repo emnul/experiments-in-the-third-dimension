@@ -10,7 +10,6 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^9.7.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@react-three/drei": "^9.88.16",
@@ -31,7 +30,9 @@
     "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "eslint-config-prettier": "^9.0.0",
     "glslify-loader": "^2.0.0",
+    "prettier": "3.1.0",
     "raw-loader": "^4.0.2",
     "typescript": "^5",
     "url-loader": "^4.1.1"
