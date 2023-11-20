@@ -1,7 +1,7 @@
 "use client";
 
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import styles from "./navbar.module.css";
 import { forwardRef, useId } from "react";
 import { CaretDownIcon } from "@radix-ui/react-icons";
@@ -43,14 +43,20 @@ function NavBar() {
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className={styles.NavigationMenuContent}>
             <ul className={`${styles.List} ${styles.one}`}>
-              <ListItem href="/experiments/ShapingFunctions/Line" title="y = x">
+              <ListItem href="/experiments/ShapingFunctions/Line" title="Line">
                 Visualization of y = x
               </ListItem>
-              <ListItem
-                href="/experiments/ShapingFunctions/Cubic"
-                title="y = x^3"
-              >
+              <ListItem href="/experiments/ShapingFunctions/Cubic" title="Pow">
                 Visualization of y = x^3
+              </ListItem>
+              <ListItem href="/experiments/ShapingFunctions/Step" title="Step">
+                Visualization of the step function
+              </ListItem>
+              <ListItem
+                href="/experiments/ShapingFunctions/SmoothStep"
+                title="SmoothStep"
+              >
+                Visualization of the smoothstep function
               </ListItem>
             </ul>
           </NavigationMenu.Content>
@@ -68,23 +74,28 @@ function NavBar() {
   );
 }
 
-const ListItem = forwardRef<
-  HTMLAnchorElement,
-  React.ComponentPropsWithRef<typeof Link>
->(({ className, children, title, href }, forwardedRef) => (
-  <li>
-    <NavigationMenu.Link asChild>
-      <Link
-        className={classNames(styles.ListItemLink, className)}
-        href={href}
-        ref={forwardedRef}
-      >
-        <div className={styles.ListItemHeader}>{title}</div>
-        <p className={styles.ListItemText}>{children}</p>
-      </Link>
-    </NavigationMenu.Link>
-  </li>
-));
+interface ExtendedLink extends LinkProps {
+  className?: string;
+  title?: string;
+  children?: string;
+}
+
+const ListItem = forwardRef<HTMLAnchorElement, ExtendedLink>(
+  ({ className, children, title, href }, forwardedRef) => (
+    <li>
+      <NavigationMenu.Link asChild>
+        <Link
+          className={classNames(styles.ListItemLink, className)}
+          href={href}
+          ref={forwardedRef}
+        >
+          <div className={styles.ListItemHeader}>{title}</div>
+          <p className={styles.ListItemText}>{children}</p>
+        </Link>
+      </NavigationMenu.Link>
+    </li>
+  )
+);
 
 ListItem.displayName = "ListItem";
 

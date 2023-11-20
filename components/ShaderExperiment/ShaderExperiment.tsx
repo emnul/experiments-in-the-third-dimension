@@ -2,20 +2,28 @@
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Color, ShaderMaterial, Vector2, Vector3 } from "three";
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import styles from "./shaderExperiment.module.css";
+import { OrbitControls } from "@react-three/drei";
 
 interface CustomShaderProps {
   vertexShader: string;
   fragmentShader: string;
+  children?: ReactNode;
+  orbitControls?: boolean;
 }
 
-function CustomShader({ vertexShader, fragmentShader }: CustomShaderProps) {
+function CustomShader({
+  children,
+  vertexShader,
+  fragmentShader,
+}: CustomShaderProps) {
   const shaderRef = useRef<ShaderMaterial>(null!);
   const { viewport } = useThree();
+  const resolution = new Vector2();
 
   useFrame((state, delta) => {
-    shaderRef.current.uniforms.uResolution.value = new Vector2(
+    shaderRef.current.uniforms.uResolution.value = resolution.set(
       state.size.width * viewport.dpr,
       state.size.height * viewport.dpr
     );
@@ -25,8 +33,8 @@ function CustomShader({ vertexShader, fragmentShader }: CustomShaderProps) {
 
   return (
     // Mesh will take up the entire screen
-    <mesh scale={new Vector3(viewport.width, viewport.height, 1)}>
-      <planeGeometry />
+    <mesh>
+      {children}
       <shaderMaterial
         ref={shaderRef}
         uniforms={{
@@ -43,17 +51,22 @@ function CustomShader({ vertexShader, fragmentShader }: CustomShaderProps) {
   );
 }
 
-function ShaderExperiment({ vertexShader, fragmentShader }: CustomShaderProps) {
+function ShaderExperiment({
+  children,
+  vertexShader,
+  fragmentShader,
+  orbitControls,
+}: CustomShaderProps) {
   return (
     <main className={styles.canvasContainer}>
-      <Canvas
-        camera={{ position: [0, 0, 1.5], fov: 55, near: 1, far: 1000 }}
-        scene={{ background: new Color("#e0e0e0") }}
-      >
+      <Canvas scene={{ background: new Color("#e0e0e0") }}>
         <CustomShader
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
-        />
+        >
+          {children}
+        </CustomShader>
+        {orbitControls ? <OrbitControls /> : <></>}
       </Canvas>
     </main>
   );
