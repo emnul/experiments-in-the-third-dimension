@@ -9,7 +9,9 @@ function CubicShader() {
     <ShaderExperiment
       fragmentShader={fragmentShader}
       vertexShader={vertexShader}
-    />
+    >
+      <planeGeometry />
+    </ShaderExperiment>
   );
 }
 

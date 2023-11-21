@@ -10,7 +10,9 @@ function SmoothStepShader() {
     <ShaderExperiment
       fragmentShader={fragmentShader}
       vertexShader={vertexShader}
-    />
+    >
+      <planeGeometry />
+    </ShaderExperiment>
   );
 }
 

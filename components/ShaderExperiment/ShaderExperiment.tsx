@@ -1,15 +1,23 @@
 "use client";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Color, ShaderMaterial, Vector2, Vector3 } from "three";
-import { ReactNode, useRef } from "react";
+import {
+  Canvas,
+  PlaneGeometryProps,
+  SphereGeometryProps,
+  useFrame,
+  useThree,
+} from "@react-three/fiber";
+import { Color, PlaneGeometry, ShaderMaterial, Vector2, Vector3 } from "three";
+import { ReactElement, useRef } from "react";
 import styles from "./shaderExperiment.module.css";
 import { OrbitControls } from "@react-three/drei";
 
 interface CustomShaderProps {
   vertexShader: string;
   fragmentShader: string;
-  children?: ReactNode;
+  children:
+    | ReactElement<PlaneGeometryProps>
+    | ReactElement<SphereGeometryProps>;
   orbitControls?: boolean;
 }
 
@@ -32,7 +40,7 @@ function CustomShader({
   });
 
   return (
-    // Mesh will take up the entire screen
+    // TODO Mesh should take up the entire screen if children is type of plane geometry
     <mesh>
       {children}
       <shaderMaterial

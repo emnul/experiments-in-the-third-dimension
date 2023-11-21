@@ -10,7 +10,9 @@ function StepShader() {
     <ShaderExperiment
       fragmentShader={fragmentShader}
       vertexShader={vertexShader}
-    />
+    >
+      <planeGeometry />
+    </ShaderExperiment>
   );
 }
 
