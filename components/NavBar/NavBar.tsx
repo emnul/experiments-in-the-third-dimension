@@ -9,6 +9,10 @@ import classNames from "classnames";
 
 const NavLinks = [
   {
+    btnText: "Home",
+    urlPath: "/",
+  },
+  {
     btnText: "Hello FragCoord",
     urlPath: "/experiments/HelloFragCoord",
   },
