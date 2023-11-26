@@ -7,7 +7,7 @@ import {
   useFrame,
   useThree,
 } from "@react-three/fiber";
-import { Color, PlaneGeometry, ShaderMaterial, Vector2, Vector3 } from "three";
+import { Color, ShaderMaterial, Vector2, Vector3 } from "three";
 import { ReactElement, useRef } from "react";
 import styles from "./shaderExperiment.module.css";
 import { OrbitControls } from "@react-three/drei";
