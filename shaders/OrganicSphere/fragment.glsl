@@ -4,14 +4,16 @@ precision mediump float;
 
 uniform vec2 uResolution;
 uniform vec2 uMouse;
-uniform float uTime;
 
 varying vec3 vNormal;
+varying float vPerlinStrength;
+
 
 void main() {
 
   vec3 color = vec3(1., 0., 0.);
 
-
-	gl_FragColor = vec4(vNormal,1.0);
+  float temp = vPerlinStrength + 0.05;
+  temp *= 2.0;
+	gl_FragColor = vec4(vec3(temp),1.0);
 }
