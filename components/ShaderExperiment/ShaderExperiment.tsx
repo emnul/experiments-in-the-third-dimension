@@ -67,7 +67,7 @@ function ShaderExperiment({
 }: CustomShaderProps) {
   return (
     <main className={styles.canvasContainer}>
-      <Canvas scene={{ background: new Color("#e0e0e0") }}>
+      <Canvas dpr={[1, 2]} scene={{ background: new Color("#e0e0e0") }}>
         <CustomShader
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
